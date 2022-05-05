@@ -1,14 +1,23 @@
-var timeblocks = $("#time-block");
-var container = $("#calendar");
-".container".appendChild(currentDay);
+//set variables and arrays. create elements
+var timeBlocks = $("#time-block");
+timeBlocks = document.createElement("div");
+var timeArray = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 
-var currentDay = function GetTodayDate() {
-    var tdate = new Date();
-    var dd = tdate.getDate(); //yields day
-    var MM = tdate.getMonth(); //yields month
-    var yyyy = tdate.getFullYear(); //yields year
-    var currentDate= dd + "-" +( MM+1) + "-" + yyyy;
- 
-    return currentDate;
- }
- console.log("date obtained")
+//add function to place current date at top of page
+var currentDay = moment().format("MMM DD, YYYY");
+$("#currentDay").append(currentDay);
+
+//use for loop to create divs for each time block and add to the container
+
+
+//add time blocks (9am-5pm) through jQuery
+
+
+//user must be able to edit the time blocks (input boxes)
+
+
+//color code time blocks for past, present, and future
+
+
+//save text in local storage
+
