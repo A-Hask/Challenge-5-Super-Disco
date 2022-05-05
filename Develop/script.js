@@ -8,16 +8,15 @@ var currentDay = moment().format("MMM DD, YYYY");
 $("#currentDay").append(currentDay);
 
 //use for loop to create divs for each time block and add to the container
-
-
-//add time blocks (9am-5pm) through jQuery
-
-
-//user must be able to edit the time blocks (input boxes)
-
+for (var i=0; i < timeArray.length; i++) {
+    timeBlocks.append(
+    $("#time-block").html("<div class='time-block' id=" + [timeArray.i] + "><span class='hour'>" + [timeArray.i] + "</span><input class='description' id='tasks10'></input><button class='saveBtn i'>Save</button></div>"));
+};
 
 //color code time blocks for past, present, and future
-
+//if timeArray.i < the current hour(H), add .past class; if timeArray=H, .present; if timeArray>H, .future
+    
 
 //save text in local storage
+
 
