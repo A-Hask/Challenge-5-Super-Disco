@@ -1,22 +1,53 @@
-//set variables and arrays. create elements
-var timeBlocks = $("#time-block");
-timeBlocks = document.createElement("div");
-var timeArray = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
-
 //add function to place current date at top of page
 var currentDay = moment().format("MMM DD, YYYY");
 $("#currentDay").append(currentDay);
 
-//use for loop to create divs for each time block and add to the container
-for (var i=0; i < timeArray.length; i++) {
-    timeBlocks.append(
-    $("#time-block").html("<div class='time-block' id=" + [timeArray.i] + "><span class='hour'>" + [timeArray.i] + "</span><input class='description' id='tasks10'></input><button class='saveBtn i'>Save</button></div>"));
-};
+var currentTime = moment().format("H");
+var timeArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
+var calendarEvents = [];
 
 //color code time blocks for past, present, and future
-//if timeArray.i < the current hour(H), add .past class; if timeArray=H, .present; if timeArray>H, .future
-    
+function colorCode() {
+    timeArray.map(function(hour){
+        if (hour < currentTime) {
+            $("#"+ hour).attr("class", "past");
+        } 
+        if (hour > currentTime) {
+            $("#"+ hour).attr("class", "future");
+        } else if (hour == currentTime) {
+            $("#"+ hour).attr("class", "present");
+        }
+    })
+
+}
+colorCode();
+
+//click event listener for save button
+$("#time-block").on("click", "button", function (event) {
+    var value = event.target.previousElementSibling.value;
+    var id = event.target.previousElementSibling.id;
+    var calendarEvent = {
+        targetValue: value,
+        targetId: id,
+    }
+    function taskText(event) {
+        var isUndefined = typeof calendarEvents === "undefined";
+        console.log(isUndefined==false);
+        if (true) {
+            calendarEvents.push(event);
+            console.log(event);
+            console.log("working");
+        } else {
+            var calendarEvents= [event];
+            console.log("undefined: " + calendarEvent);
+        }
+    }
+    taskText();
+});
+
+//save text in an array
+
 
 //save text in local storage
 
-
+//use JSON to parse entered text
